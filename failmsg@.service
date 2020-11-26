@@ -1,0 +1,18 @@
+# This service exists to call an email-sending script. Use it from another
+# service with a line in the Unit section, like this:
+#
+# [Unit]
+# OnFailure=failmsg@%n.service
+#
+# It's not necessary to enable or start this, just put it with the other units.
+#
+# %n is the full unit name
+# %i is the instance name, the string between the first @ and the type suffix
+# See 'man systemd.unit', 'man systemd.service'
+
+[Unit]
+Description=Failure message email for %i
+
+[Service]
+Type=oneshot
+ExecStart=failmsg.sh %i
