@@ -81,7 +81,10 @@ Packaging for deployment is done with the `install.sh` script. It will make a
 directory like `systemd-failmsg-VERSION` which can then be packed as a .tar.gz
 or used by distro-specific packaging.
 
-For building a Debian .deb package, use the `util/package.sh` script.
+To build a generic release .tar.gz of the distributable files, use the
+`util/package.sh` script. This type of archive is used by the Arch AUR build.
+
+To build a Debian .deb package, use the `util/package-deb.sh` script.
 
 
 ## Contact

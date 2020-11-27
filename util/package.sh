@@ -1,25 +1,19 @@
 #! /bin/bash
 
-# This script will build and package the project as a Debian .deb file for
-# installation.
+# This script will build and package a release of the project as a generic
+# .tar.gz file
 
 # Extract the project version from the generic install script
 version=$(perl -ne "print \"\$1\n\" if /version=\"(.*)\"/" install.sh)
 
 # Use it to make the top-level dist path
-distRoot="systemd-failmsg/systemd-failmsg_${version}"
+distRoot="systemd-failmsg-${version}"
 
-# Deploy the project's installation files to a prefix below the distRoot
-PREFIX="${distRoot}/usr" ./install.sh
+# Deploy the project's installation files in the distRoot directory
+PREFIX="${distRoot}" ./install.sh
 
-# Copy the rest of the files needed for installation and Debian packaging
-cp -rv util/resources/* "$distRoot"
-
-# Update the Debian control file with the correct project version
-perl -pi -e "s/Version: .*/Version: ${version}/" "${distRoot}/DEBIAN/control"
-
-# Construct the .deb file
-dpkg-deb --root-owner-group --build "$distRoot"
+# Archive the files into a release
+tar czvf "${distRoot}.tar.gz" "${distRoot}"
 
 echo "Complete."
-echo "To see the file's contents: $ dpkg-deb -c ${distRoot}.deb"
+echo "To see the file's contents: $ tar tzvf ${distRoot}.tar.gz"
