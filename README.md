@@ -72,12 +72,16 @@ This is also documented in the comments in `failmsg@.service`
 
 ## Development
 
+The source repository is at <https://github.com/dino-/systemd-failmsg>
+
 To change the version number of this project, modify the version variable
 assignment in `install.sh`
 
 Packaging for deployment is done with the `install.sh` script. It will make a
 directory like `systemd-failmsg-VERSION` which can then be packed as a .tar.gz
 or used by distro-specific packaging.
+
+For building a Debian .deb package, use the `util/package.sh` script.
 
 
 ## Contact
