@@ -9,6 +9,11 @@
 # %n is the full unit name
 # %i is the instance name, the string between the first @ and the type suffix
 # See 'man systemd.unit', 'man systemd.service'
+#
+# To test this service, start it with a dummy service name. If failmsg.sh is
+# also working, it should send an email:
+#
+#   # systemctl start failmsg@foo.service.service
 
 [Unit]
 Description=Failure message email for %i

@@ -6,6 +6,9 @@
 # For this to work, root and possibly one or more user accounts will need to be
 # mapped to real email addresses in /etc/aliases and you will need a
 # functioning sendmail-like installed.
+#
+# To test the script, just run it with any input: `failmsg.sh foobar` and it
+# should send an email.
 
 unitName="$1"
 host=$(hostname)

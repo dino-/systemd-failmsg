@@ -3,16 +3,16 @@
 
 ## Synopsis
 
-A systemd service and script to send an email to the system operator(s) in the
-event of failure in another unit
+A systemd service and script to send failure emails
 
 
 ## Description
 
 This is a generic systemd service and script intended to be used with the
 `OnFailure=` Unit option of other systemd units. The idea is to send an email
-on failure for some arbitrary unit(s) of your choosing. Any behavior could be
-substituted in place of email by modifying the unit and/or script.
+to the system operator(s) on failure for some arbitrary unit(s) of your
+choosing. Any behavior could be substituted in place of email by modifying the
+unit and/or script.
 
 
 ## Installation
@@ -22,10 +22,13 @@ substituted in place of email by modifying the unit and/or script.
 If `systemd-failmsg` was installed via a distro package, skip to the Post
 Installation section
 
-Manual installation requires copying these files:
+The `install.sh` script will create a deployment directory for this project
+with a default PREFIX of `./systemd/failmsg-VERSION`. It's possible to run this
+with a different prefix like `/usr` but this isn't recommended over using a
+distro-specific package so clean uninstallation is possible.
 
-    # install -Dm0644 "failmsg@.service" "/usr/lib/systemd/system/failmsg@.service"
-    # install -m0755 "failmsg.sh" "/usr/local/bin/failmsg.sh"  # Somewhere on the PATH
+This script is used to build releases and for distro-specific packaging.
+
 
 ### Post Installation
 
@@ -53,20 +56,8 @@ adding/modifying systemd unit files in general.
 
 ### Testing your installation
 
-The mail script can be tested alone:
-
-    # /usr/bin/failmsg.sh alpha.service
-    $ /usr/bin/failmsg.sh bravo.service
-
-And the unit can be tested:
-
-    # systemctl start failmsg\@charlie.service.service
-    $ systemctl --user start failmsg\@delta.service.service
-
-If all goes well, you should see emails for each of the four commands above,
-and logs for the executions as well.
-
-    $ journalctl -u failmsg\@charlie.service.service
+Instructions for testing this are in the files `bin/failmsg.sh` and
+`lib/systemd/system/failmsg@.service`
 
 
 ## Using systemd-failmsg
@@ -78,9 +69,15 @@ To use `failmsg@.service` from another unit add a line to the Unit section, like
 
 This is also documented in the comments in `failmsg@.service`
 
-Of course, sending email is just a suggestion here. The `failmsg.sh` script can
-do pretty much anything you want. The important part here is the
-`failmsg@.service`
+
+## Development
+
+To change the version number of this project, modify the version variable
+assignment in `install.sh`
+
+Packaging for deployment is done with the `install.sh` script. It will make a
+directory like `systemd-failmsg-VERSION` which can then be packed as a .tar.gz
+or used by distro-specific packaging.
 
 
 ## Contact
