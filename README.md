@@ -23,9 +23,9 @@ If `systemd-failmsg` was installed via a distro package, skip to the Post
 Installation section
 
 The `install.sh` script will create a deployment directory for this project
-with a default PREFIX of `./systemd/failmsg-VERSION`. It's possible to run this
-with a different prefix like `/usr` but this isn't recommended over using a
-distro-specific package so clean uninstallation is possible.
+with a default PREFIX of `systemd-failmsg-VERSION/usr/local`. It's possible to
+run this with a different prefix like `/usr` but this isn't recommended over
+using a distro-specific package so clean uninstallation is possible.
 
 This script is used to build releases and for distro-specific packaging.
 
@@ -45,7 +45,7 @@ This service can also be used by unprivileged users by copying the service file
 to a user unit directory, example (this directory may not yet exist in the
 user's HOME directory):
 
-    $ install -Dm0644 "/usr/lib/systemd/system/failmsg@.service" "~/.config/systemd/user/failmsg@.service"
+    $ install -Dm0644 "/etc/systemd/system/failmsg@.service" "~/.config/systemd/user/failmsg@.service"
 
 Regardless of the installation method, it may be necessary to daemon-reload
 systemd if the system hasn't been rebooted as is customary when
