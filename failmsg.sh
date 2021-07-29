@@ -16,11 +16,11 @@ host=$(hostname)
 if [ "$(id -u)" == "0" ]
   then
     journalctlPrefix="journalctl"
-    fromAddr="root@${host}"
+    fromAddr="root@${host}.localdomain"
     toAddr="root"
   else
     journalctlPrefix="journalctl --user"
-    fromAddr="${USER}@${host}"
+    fromAddr="${USER}@${host}.localdomain"
     toAddr="${USER}"
 fi
 
