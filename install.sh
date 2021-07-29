@@ -1,13 +1,13 @@
 #! /bin/bash
 
-version="1.0"
+version="1.1"
 
-rootDir="systemd-failmsg-${version}"
-PREFIX=${PREFIX:-"$rootDir/usr/local"}
+distRoot=${1:-"systemd-failmsg-${version}"}
+prefix="$distRoot/${2:-usr/local}"
 
-shareDir="$PREFIX/share/systemd-failmsg"
+shareDir="$prefix/share/systemd-failmsg"
 
-install -Dm0755 failmsg.sh "$PREFIX/bin/failmsg.sh"
-install -Dm0644 "failmsg@.service" "$rootDir/etc/systemd/system/failmsg@.service"
+install -Dm0755 failmsg.sh "$prefix/bin/failmsg.sh"
+install -Dm0644 "failmsg@.service" "${distRoot}/etc/systemd/system/failmsg@.service"
 install -Dm0644 "LICENSE" "${shareDir}/doc/LICENSE"
 install -Dm0644 "README.md" "${shareDir}/doc/README.md"

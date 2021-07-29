@@ -20,4 +20,4 @@ Description=Failure message email for %i
 
 [Service]
 Type=oneshot
-ExecStart=/usr/local/bin/failmsg.sh %i
+ExecStart=/usr/bin/failmsg.sh %i

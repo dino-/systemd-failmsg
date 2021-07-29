@@ -23,11 +23,11 @@ If `systemd-failmsg` was installed via a distro package, skip to the Post
 Installation section
 
 The `install.sh` script will create a deployment directory for this project
-with a default PREFIX of `systemd-failmsg-VERSION/usr/local`. It's possible to
-run this with a different prefix like `/usr` but this isn't recommended over
-using a distro-specific package so clean uninstallation is possible.
-
-This script is used to build releases and for distro-specific packaging.
+with a default prefix of `systemd-failmsg-VERSION/usr/local`. It's possible to
+run this with a different root dir and prefix like `/` and `/usr` but this
+isn't recommended over using a distro-specific package so clean uninstallation
+is possible. In fact, the two packaging scripts in `util` will do the right
+thing.
 
 
 ### Post Installation
