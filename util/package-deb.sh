@@ -10,7 +10,7 @@ version=$(perl -ne "print \"\$1\n\" if /version=\"(.*)\"/" install.sh)
 distRoot="systemd-failmsg/systemd-failmsg_${version}"
 
 # Deploy the project's installation files to a prefix below the distRoot
-./install.sh "$distRoot" "usr"
+PREFIX="${distRoot}/usr" ./install.sh
 
 # Copy the rest of the files needed for installation and Debian packaging
 cp -rv util/resources/* "$distRoot"

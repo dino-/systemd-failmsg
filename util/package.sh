@@ -10,7 +10,7 @@ version=$(perl -ne "print \"\$1\n\" if /version=\"(.*)\"/" install.sh)
 distRoot="systemd-failmsg-${version}"
 
 # Deploy the project's installation files in the distRoot directory
-./install.sh "$distRoot" "usr"
+PREFIX="${distRoot}" ./install.sh
 
 # Archive the files into a release
 tar czvf "${distRoot}.tar.gz" "${distRoot}"
