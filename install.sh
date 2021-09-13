@@ -1,6 +1,6 @@
 #! /bin/bash
 
-version="1.2"
+version="1.3"
 
 PREFIX=${PREFIX:-"systemd-failmsg-${version}"}
 
