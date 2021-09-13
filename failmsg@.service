@@ -17,7 +17,11 @@
 
 [Unit]
 Description=Failure message email for %i
+After=network.target
 
 [Service]
 Type=oneshot
 ExecStart=/usr/bin/failmsg.sh %i
+
+[Install]
+WantedBy=multi-user.target
