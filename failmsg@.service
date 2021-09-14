@@ -1,10 +1,15 @@
-# This service exists to call an email-sending script. Use it from another
-# service with a line in the Unit section, like this:
+# This service exists to call an email-sending script. Default installation
+# will set it as the `OnFailure` unit for every unit on the system.
+#
+# Another option is to use it with only some units by manually removing the
+# `...service.d/toplevel-override.conf` and
+# `...failmsg@.service.d/toplevel-override.conf` files and set it for specific
+# units like:
 #
 # [Unit]
 # OnFailure=failmsg@%n.service
 #
-# It's not necessary to enable or start this, just put it with the other units.
+# Note: This is a template unit, it's not necessary to enable or start it
 #
 # %n is the full unit name
 # %i is the instance name, the string between the first @ and the type suffix

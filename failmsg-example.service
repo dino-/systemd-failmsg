@@ -1,9 +1,0 @@
-# See 'man systemd.unit', 'man systemd.service'
-
-[Unit]
-Description=Example always-failing service to exercise the failmsg@.service
-OnFailure=failmsg@%n.service
-
-[Service]
-Type=oneshot
-ExecStart=false

@@ -12,3 +12,4 @@ install -Dm0644 service.d_toplevel-override.conf "$unitDir/service.d/toplevel-ov
 install -Dm0644 failmsg@.service.d_toplevel-override.conf "$unitDir/failmsg@.service.d/toplevel-override.conf"
 install -Dm0644 "LICENSE" "${shareDir}/doc/LICENSE"
 install -Dm0644 "README.md" "${shareDir}/doc/README.md"
+install -Dm0644 "always-fails.service" "${shareDir}/always-fails.service"

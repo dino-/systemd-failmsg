@@ -1,0 +1,11 @@
+# See 'man systemd.unit', 'man systemd.service'
+
+[Unit]
+Description=Example service that always fails
+
+# Don't need this for default systemd-failmsg installation
+# OnFailure=failmsg@%n.service
+
+[Service]
+Type=oneshot
+ExecStart=false
