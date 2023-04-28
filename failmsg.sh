@@ -11,25 +11,21 @@
 # should send an email.
 
 unitName="$1"
-host=$(hostname)
 
 if [ "$(id -u)" == "0" ]
   then
     journalctlPrefix="journalctl"
-    fromAddr="root@${host}.localdomain"
     toAddr="root"
   else
     journalctlPrefix="journalctl --user"
-    fromAddr="${USER}@${host}.localdomain"
     toAddr="${USER}"
 fi
 
 log=$(${journalctlPrefix} -u "$unitName" | tail)
 
 sendmail -t <<MESSAGE
-From: ${fromAddr}
 To: ${toAddr}
-Subject: Service $unitName on $host has failed
+Subject: Service $unitName on ${HOSTNAME} has failed
 
 log excerpt:
 
