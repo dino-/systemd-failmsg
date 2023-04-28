@@ -1,6 +1,6 @@
 #! /bin/bash
 
-version="1.3"
+version="1.4"
 
 PREFIX=${PREFIX:-"systemd-failmsg-${version}"}
 unitDir="$PREFIX/lib/systemd/system"
