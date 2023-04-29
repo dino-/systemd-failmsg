@@ -51,7 +51,7 @@ project.
 
 You will also need to edit the `/etc/aliases` file, similarly to this:
 
-    root: smedley@somewhere.com someotherinterestedparty@somewhereelse.com
+    root: smedley@somewhere.com,someotherinterestedparty@somewhereelse.com
     smedley: smedley@somewhere.com
 
 This service can also be used by unprivileged users by copying its systemd
@@ -61,9 +61,9 @@ files to a user unit directory, example:
     $ install -Dm0644 /usr/lib/systemd/system/service.d/toplevel-override.conf $HOME/.config/systemd/user/service.d/toplevel-override.conf
     $ install -Dm0644 /usr/lib/systemd/system/failmsg@.service.d/toplevel-override.conf $HOME/.config/systemd/user/failmsg@.service.d/toplevel-override.conf
 
-Regardless of the installation method, it may be necessary to daemon-reload
-systemd if the system hasn't been rebooted as is customary when
-adding/modifying systemd unit files in general.
+Regardless of the installation method, if the system hasn't been rebooted, it
+may be necessary to daemon-reload systemd as is customary when adding/modifying
+systemd unit files in general.
 
     # systemctl daemon-reload
     $ systemctl --user daemon-reload
