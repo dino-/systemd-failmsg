@@ -23,7 +23,7 @@ Installation section
 
 The `install.sh` script will create a deployment directory for this project
 with a default PREFIX of `./systemd-failmsg-VERSION`. It's possible to run this
-with a different prefix like `/usr` but this isn't recommended over using a
+with a different prefix like `/` but this isn't recommended over using a
 distro-specific package so clean uninstallation is possible.
 
 This script is used by other scripts in the source distribution to build

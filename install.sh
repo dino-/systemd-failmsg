@@ -1,12 +1,13 @@
 #! /bin/bash
 
 version="1.4"
+projectName="systemd-failmsg"
 
-PREFIX=${PREFIX:-"systemd-failmsg-${version}"}
-unitDir="$PREFIX/lib/systemd/system"
-shareDir="$PREFIX/share/systemd-failmsg"
+PREFIX=${PREFIX:-"${projectName}-${version}"}
+unitDir="$PREFIX/usr/lib/systemd/system"
+shareDir="$PREFIX/usr/share/${projectName}"
 
-install -Dm0755 failmsg.sh "$PREFIX/bin/failmsg.sh"
+install -Dm0755 failmsg.sh "$PREFIX/usr/bin/failmsg.sh"
 install -Dm0644 "failmsg@.service" "$unitDir/failmsg@.service"
 install -Dm0644 service.d_toplevel-override.conf "$unitDir/service.d/toplevel-override.conf"
 install -Dm0644 failmsg@.service.d_toplevel-override.conf "$unitDir/failmsg@.service.d/toplevel-override.conf"

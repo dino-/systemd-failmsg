@@ -25,7 +25,7 @@ log=$(${journalctlPrefix} -u "$unitName" | tail)
 
 sendmail -t <<MESSAGE
 To: ${toAddr}
-Subject: ${HOSTNAME} Service $unitName has failed
+Subject: Host ${HOSTNAME} service $unitName has failed
 
 log excerpt:
 
