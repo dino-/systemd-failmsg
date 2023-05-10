@@ -1,6 +1,6 @@
 #! /bin/bash
 
-version="1.4"
+version="1.5"
 projectName="systemd-failmsg"
 
 PREFIX=${PREFIX:-"${projectName}-${version}"}

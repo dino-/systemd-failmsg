@@ -3,5 +3,5 @@ Architecture: all
 Maintainer: Dino Morelli
 Depends: debconf (>= 0.5.00)
 Priority: optional
-Version: 1.8
+Version: 1.5
 Description: A systemd service and script to send failure emails
